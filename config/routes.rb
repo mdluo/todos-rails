@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'todos#index'
+  get 'todos/all' => 'todos#all'
+  get 'todos/delete/:id' => 'todos#delete'
   resources :todos
 
   # The priority is based upon order of creation: first created -> highest priority.
