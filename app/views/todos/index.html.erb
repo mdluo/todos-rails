@@ -6,48 +6,21 @@
         </header>
 
         <section id="main">
-            <input id="toggle-all" type="checkbox" {{#if isAllChecked}} checked = "true" {{/if}}>
+            <input id="toggle-all" type="checkbox" checked="tue">
             <label for="toggle-all">Mark all as complete</label>
             <ul id="todo-list" class="data-cloak">
-                {{#each data}}
-                <li>
-                    <div class="view">
-                        {{#if this.completed}}
-                        <input class="toggle" type="checkbox" checked="checked" value="{{this.time}}" data-id="{{this.smr_id}}" status="{{this.completed}}">
-                        <s><label style="color: #a9a9a9;  text-decoration: line-through;">{{this.task}}</label></s>
-                        {{else}}
-                        <input class="toggle" type="checkbox" value="{{this.time}}" data-id="{{this.smr_id}}" status="{{this.completed}}">
-                        <label>{{this.task}}</label>
-                        {{/if}}
-                        <button class="destroy" data-id="{{this.smr_id}}"></button>
-                    </div>
-                    <!-- <input class="edit" value="{{todo.title}}"> -->
-                </li>
-                {{/each}}
             </ul>
         </section>
 
         <footer id="footer" class="data-cloak">
-            <span id="todo-count"><strong>{{unCompleted}}</strong>&nbsp; left</span>
-            <button id="clear-completed">Clear completed  &nbsp; {{commpleted}}</button>
+            <span id="todo-count"><strong class="uncomCount">0</strong>&nbsp; left</span>
+            <button id="clear-completed">Clear completed  &nbsp; <span class="comCount">0</span></button>
         </footer>
     </div>
 
-    <style type="text/css">
-    {{#if isChecked}}
-    #clear-completed {
-        display:block;
-    }
-    {{else}}
-    #clear-completed {
-        display:none;
-    }
-    {{/if}}
-    </style>
-
     <div id="info">
 
-        <p>Designed by EvangelistTeam & Coded by <a href="https://github.com/mdluo/todos/">mdluo</a></p>
+        <p>Fork me on <a href="https://github.com/mdluo/todos/" target="_blank">Github</a></p>
 
     </div>
 

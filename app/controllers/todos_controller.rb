@@ -7,22 +7,44 @@ class TodosController < ApplicationController
      render json: @todos
   end
 
-  def show
-      @todo = Todo.find(params[:id])
-      render json: @todo
-  end
-
-  def new
-      @todo = Todo.new(params[:todo])
+  def create
+      @todo = Todo.new
+	  @todo.task = params[:task]
+	  @todo.completed = params[:completed]
       @todo.save
       render json: @todo
   end
 
   def update
+	  @todo = Todo.find(params[:id])
+	  @todo.completed = !@todo.completed
+      @todo.save
+      render json: @todo
+  end
+	
+  def toggle
+	  @todos = Todo.all
+	  @todos.find_each() do |todo|
+		  todo.completed = params[:completed]
+		  todo.save
+	  end
+      render json: @todos
   end
 
   def delete
-      render json: params[:id]
+	  if params[:id] != "-1"
+		  @todo = Todo.find(params[:id])
+		  @todo.destroy
+		  render json: @todo
+	  else
+		  @todos = Todo.all
+		  @todos.find_each() do |todo|
+			  if todo.completed
+			  	todo.destroy
+			  end
+		  end
+		  render json: @todos
+	  end
   end
 
 end
