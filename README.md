@@ -8,6 +8,12 @@ A todo list demo program developed with Ruby on Rails
 http://todos.nsmss.com/
 
 
+#### Requirement
+- Git
+- Ruby
+- Rails
+
+
 #### Deployment 
 
 - Clone this repository:
