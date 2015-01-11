@@ -18,7 +18,7 @@ http://todos.nsmss.com/
 
 - Clone this repository:
 ```bash
-git clone git@github.com:mdluo/todos.git
+git clone https://github.com/mdluo/todos.git
 ```
 
 - And: 
