@@ -1,7 +1,7 @@
 Todos
 =====
 
-A todolist app for Ruby on Rails
+A ToDoList app for Ruby on Rails
 
 
 #### Live demo
@@ -14,14 +14,14 @@ http://todos.nsmss.com/
 - Rails
 
 
-#### Deployment 
+#### Deployment
 
 - Clone this repository:
 ```bash
 git clone https://github.com/mdluo/todos.git
 ```
 
-- And: 
+- And:
 ```bash
 cd into/the/repository/directory
 ```
