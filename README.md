@@ -1,7 +1,7 @@
 Todos
 =====
 
-A ToDoList app for Ruby on Rails
+Todolist App for Ruby on Rails
 
 
 #### Live demo
