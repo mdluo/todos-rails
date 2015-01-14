@@ -21,9 +21,9 @@ http://todos.nsmss.com/
 git clone https://github.com/mdluo/todos.git
 ```
 
-- And:
+- And go into the directory:
 ```bash
-cd into/the/repository/directory
+cd todos
 ```
 
 - Then run the migration:
