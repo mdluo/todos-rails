@@ -4,7 +4,7 @@ class TodosController < ApplicationController
 
   def all
      @todos = Todo.all
-     render json: @todos
+     render json: @todos 
   end
 
   def create
@@ -21,7 +21,7 @@ class TodosController < ApplicationController
       @todo.save
       render json: @todo
   end
-	
+
   def toggle
 	  @todos = Todo.all
 	  @todos.find_each() do |todo|
