@@ -9,24 +9,24 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new
-    @todo.task = params[:task]
-    @todo.completed = params[:completed]
-    @todo.save
+      @todo.task = params[:task]
+      @todo.completed = params[:completed]
+      @todo.save
     render json: @todo
   end
 
   def update
     @todo = Todo.find(params[:id])
-    @todo.completed = !@todo.completed
-    @todo.save
+      @todo.completed = !@todo.completed
+      @todo.save
     render json: @todo
   end
 
   def toggle
     @todos = Todo.all
     @todos.find_each() do |todo|
-    todo.completed = params[:completed]
-    todo.save
+      todo.completed = params[:completed]
+      todo.save
     end
       render json: @todos
   end
