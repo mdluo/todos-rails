@@ -8,11 +8,11 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.new
-    @todo.task = params[:task]
-    @todo.completed = params[:completed]
-    @todo.save
-    render json: @todo
+      @todo = Todo.new :task => params[:todo][:task]
+      @todo.save
+
+      redirect_to :action => :index
+      #render json: @todo
   end
 
   def update

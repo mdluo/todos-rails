@@ -6,12 +6,19 @@
     <div id="todoapp">
         <header id="header">
             <h1>Todos</h1>
-            <input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">
+            <%= form_for @todo, :url => todos_create_path do |f| %>
+                  <!--<input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">-->
+                  <%= f.text_field :task, id: 'new-todo', placeholder: 'What needs to be done? (100)', maxlength: 100 %>
+            <% end %>
         </header>
 
         <section id="main">
-            <input id="toggle-all" type="checkbox" checked="tue">
-            <label for="toggle-all">Mark all as complete</label>
+            <%= form_tag controller: 'todos', action: 'toggle' do %>
+                  <%= check_box_tag 'toggle-all' %>
+            <!--<input id="toggle-all" type="checkbox" checked="tue">
+            <label for="toggle-all">Mark all as complete</label>-->
+                  <%= label_tag 'toggle-all', 'Mark all as complete' %>
+            <% end %>
             <ul id="todo-list" class="data-cloak">
             </ul>
         </section>
