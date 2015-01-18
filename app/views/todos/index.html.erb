@@ -6,10 +6,7 @@
     <div id="todoapp">
         <header id="header">
             <h1>Todos</h1>
-            <%= form_for @todo, :url => todos_create_path do |f| %>
-                  <!--<input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">-->
-                  <%= f.text_field :task, id: 'new-todo', placeholder: 'What needs to be done? (100)', maxlength: 100 %>
-            <% end %>
+                  <input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">
         </header>
 
         <section id="main">
