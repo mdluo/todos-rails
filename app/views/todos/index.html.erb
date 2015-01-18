@@ -9,8 +9,12 @@
         </header>
 
         <section id="main">
-            <input id="toggle-all" type="checkbox" checked="tue">
-            <label for="toggle-all">Mark all as complete</label>
+            <%= form_tag controller: 'todos', action: 'toggle' do %>
+                  <%= check_box_tag 'toggle-all' %>
+            <!--<input id="toggle-all" type="checkbox" checked="tue">
+            <label for="toggle-all">Mark all as complete</label>-->
+                  <%= label_tag 'toggle-all', 'Mark all as complete' %>
+            <% end %>
             <ul id="todo-list" class="data-cloak">
             </ul>
         </section>
