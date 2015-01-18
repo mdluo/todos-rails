@@ -4,7 +4,6 @@
             <h1>Todos</h1>
             <%= form_for @todo, :url => { :controller => 'todos', :action => 'create' } do |f| %>
                    <input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">
-                   <% @todo.task="new-todo" %>
             <% end %>
         </header>
 
