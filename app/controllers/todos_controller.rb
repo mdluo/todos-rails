@@ -1,7 +1,6 @@
 class TodosController < ApplicationController
   def index
      @todo = Todo.new
-     @todos = Todo.all
   end
 
   def all
@@ -14,7 +13,9 @@ class TodosController < ApplicationController
 	  @todo.task = params[:task]
 	  @todo.completed = params[:completed]
       @todo.save
-      render json: @todo
+
+      redirect_to :action => :index
+      #render json: @todo
   end
 
   def update
