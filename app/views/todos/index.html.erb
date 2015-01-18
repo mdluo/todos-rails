@@ -2,7 +2,9 @@
     <div id="todoapp">
         <header id="header">
             <h1>Todos</h1>
-            <input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">
+            <%= form_for @todo, :url => { :controller => 'todos', :action => 'create' } do |f| %>
+                  <input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">
+            <% end %>
         </header>
 
         <section id="main">
