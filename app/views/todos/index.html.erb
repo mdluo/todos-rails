@@ -6,10 +6,7 @@
     <div id="todoapp">
         <header id="header">
             <h1>Todos</h1>
-            <%= form_for @todo, :url => todos_create_path do |f| %>
-                  <!--<input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">-->
-                  <%= f.text_field :task, id: 'new-todo', placeholder: 'What needs to be done? (100)', maxlength: 100 %>
-            <% end %>
+                  <input id="new-todo" placeholder="What needs to be done? (100)" maxlength="100">
         </header>
 
         <section id="main">
@@ -31,7 +28,7 @@
 
     <div id="info">
 
-        <p>Designed by <a href="https://github.com/sindresorhus">Sindre Sorhus</a>. Coded by <a href="https://github.com/mdluo">Mingdong Luo</a></p>.
+        <p>Designed by <a href="https://github.com/sindresorhus">Sindre Sorhus</a>. Coded by <a href="https://github.com/mdluo">Mingdong Luo</a>.</p>
 
         <!--
         <iframe src="http://ghbtns.com/github-btn.html?user=mdluo&repo=todos&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>

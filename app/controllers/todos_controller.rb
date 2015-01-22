@@ -1,6 +1,5 @@
 class TodosController < ApplicationController
   def index
-     @todo = Todo.new
   end
 
   def all
@@ -14,8 +13,11 @@ class TodosController < ApplicationController
   end
 
   def create
-      @todo = Todo.new :task => params[:todo][:task]
+    @todo = Todo.new
+      @todo.task = params[:task]
+      @todo.completed = params[:completed]
       @todo.save
+
       if cookies[:lat_lon] != nil
           @idSet = cookies[:lat_lon].split(',')
       else
@@ -25,22 +27,22 @@ class TodosController < ApplicationController
       @idSet.push @todo.id
       cookies.permanent[:lat_lon] = @idSet.join(',')
 
-      redirect_to :action => :index
-      #render json: @todo
+      
+      render json: @todo
   end
 
   def update
     @todo = Todo.find(params[:id])
-    @todo.completed = !@todo.completed
-    @todo.save
+      @todo.completed = !@todo.completed
+      @todo.save
     render json: @todo
   end
 
   def toggle
     @todos = Todo.all
     @todos.find_each() do |todo|
-    todo.completed = params[:completed]
-    todo.save
+      todo.completed = params[:completed]
+      todo.save
     end
       render json: @todos
   end
