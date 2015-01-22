@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 
 gem 'tzinfo'
 gem 'tzinfo-data'
+
+gem 'rqrcode_png', '~> 0.1.5'
