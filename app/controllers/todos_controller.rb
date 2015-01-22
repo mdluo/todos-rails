@@ -4,13 +4,26 @@ class TodosController < ApplicationController
   end
 
   def all
-    @todos = Todo.all
+    @todos = Array.new
+    if cookies[:lat_lon] != nil
+        cookies[:lat_lon].split(',').each { |value| @todos.push(Todo.where(:id => value.to_i).first) }
+    end
+       
+      
     render json: @todos
   end
 
   def create
       @todo = Todo.new :task => params[:todo][:task]
       @todo.save
+      if cookies[:lat_lon] != nil
+          @idSet = cookies[:lat_lon].split(',')
+      else
+          @idSet = Array.new
+      end
+
+      @idSet.push @todo.id
+      cookies.permanent[:lat_lon] = @idSet.join(',')
 
       redirect_to :action => :index
       #render json: @todo
@@ -33,8 +46,11 @@ class TodosController < ApplicationController
   end
 
   def delete
+    @idSet = cookies[:lat_lon].split(',')
     if params[:id] != "-1"
       @todo = Todo.find(params[:id])
+      @idSet = @idSet - [@todo.id.to_s]
+      cookies.permanent[:lat_lon] = @idSet.join(',')
       @todo.destroy
       render json: @todo
     else
@@ -44,7 +60,7 @@ class TodosController < ApplicationController
           todo.destroy
         end
       end
-      render json: @todos
+      render json: @todo
     end
   end
 

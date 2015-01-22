@@ -16,7 +16,7 @@ $ ->
 		updateCount comCount, data.length-comCount
 	
 	# Add data
-	new_todo = $('#new-todo')
+	new_todo = $('#new-todo-new')
 	new_todo.keydown (e) ->
 		if e.which is 13 and new_todo.val()
 			$.post "todos/create", {task:new_todo.val(), completed:false}, (data) ->
