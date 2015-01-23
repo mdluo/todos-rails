@@ -75,7 +75,7 @@ class TodosController < ApplicationController
         content.push :id => id.to_i, :task => task[:task], :f => task[:completed]
       end
 
-      data = { succeeded: true, code: view_context.generate_qrcode_base64(content.to_json, 384) }
+      data = { succeeded: content.size > 0, code: view_context.generate_qrcode_base64(content.to_json, 384) }
 
     else
       data = { succeeded: false }
