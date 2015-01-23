@@ -67,7 +67,20 @@ class TodosController < ApplicationController
   end
 
   def qrcode
-    data = { code: view_context.generate_qrcode_base64('placeholderplaceholder', 384) }
+    if cookies[:lat_lon] != nil
+
+      content = Array.new
+      cookies[:lat_lon].split(',').each do |id|
+        task = Todo.where(:id => id.to_i).first
+        content.push :id => id.to_i, :task => task[:task], :f => task[:completed]
+      end
+
+      data = { succeeded: content.size > 0, code: view_context.generate_qrcode_base64(content.to_json, 384) }
+
+    else
+      data = { succeeded: false }
+    end
+
     render json: data
   end
 

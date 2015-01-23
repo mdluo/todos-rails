@@ -44,7 +44,8 @@
     </div>
 
     <div id="qrcode-popup">
-        <%= qrcode_img "placeholder", size: 384 %>
+        <%= qrcode_img "placeholder", size: 384, id: 'img-qrcode' %>
+        <img id="img-no-qrcode" class="hidden" src="assets/no_qrcode.png" width="384" height="384">
     </div>
 
 </block>
