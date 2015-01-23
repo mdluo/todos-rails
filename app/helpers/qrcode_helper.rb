@@ -16,7 +16,10 @@ module QrcodeHelper
     # use rqrcode_png library to generate QRCode
     # return Base64 code of generated QRCode
     def generate_qrcode_base64(content, size, code_size = 8, correction_level = :l)
-      qr_object = RQRCode::QRCode.new(content.to_s, :size => code_size, :level => correction_level)
+      # rqrcode cannot handle UTF-8 properly, 
+      #   so we can only force encode the source to 8bit ASCII currently
+      #   refer to: https://ruby-china.org/topics/7527
+      qr_object = RQRCode::QRCode.new(content.to_s.force_encoding('ASCII-8BIT'), :size => code_size, :level => correction_level)
       Base64.encode64(qr_object.to_img.resize(size, size).to_s)
     end
 
