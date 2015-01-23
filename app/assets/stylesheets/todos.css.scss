@@ -397,6 +397,14 @@ label[for='toggle-all'] {
     color: inherit;
 }
 
+#qrcode-popup {
+    display: none;
+    border-radius: 5px;
+    background-color: white;
+    padding: 1em;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 0 25px 50px 0 rgba(0, 0, 0, 0.5);
+}
+
 /*
 Hack to remove background from Mobile Safari.
 Can't use it globally since it destroys checkboxes in Firefox and Opera

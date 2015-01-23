@@ -66,4 +66,9 @@ class TodosController < ApplicationController
     end
   end
 
+  def qrcode
+    data = { code: view_context.generate_qrcode_base64('placeholderplaceholder', 384) }
+    render json: data
+  end
+
 end

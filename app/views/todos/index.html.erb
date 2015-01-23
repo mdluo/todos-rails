@@ -23,6 +23,7 @@
         <footer id="footer" class="data-cloak">
             <span id="todo-count"><strong class="uncomCount">0</strong>&nbsp; left</span>
             <button id="clear-completed">Clear completed  &nbsp; <span class="comCount">0</span></button>
+            <button id="gen-qrcode">Generate QRCode</button>
         </footer>
     </div>
 
@@ -40,6 +41,10 @@
         allowtransparency="true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
         -->
 
+    </div>
+
+    <div id="qrcode-popup">
+        <%= qrcode_img "placeholder", size: 384 %>
     </div>
 
 </block>
