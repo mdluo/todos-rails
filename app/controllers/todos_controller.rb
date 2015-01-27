@@ -33,12 +33,16 @@ class TodosController < ApplicationController
   end
 
   def toggle
-    @todos = Todo.all
-    @todos.find_each() do |todo|
-      todo.completed = params[:completed]
-      todo.save
+    @todos = Array.new
+    if cookies[:lat_lon] != nil
+      cookies[:lat_lon].split(',').each do |t|
+        tmpTodo = Todo.find(t)
+        tmpTodo.completed = params[:completed]
+        tmpTodo.save
+        @todos.push(tmpTodo)
+      end
     end
-      render json: @todos
+    render json: @todos
   end
 
   def delete
@@ -65,7 +69,7 @@ class TodosController < ApplicationController
       content = Array.new
       cookies[:lat_lon].split(',').each do |id|
         task = Todo.where(:id => id.to_i).first
-        content.push :id => id.to_i, :task => task[:task], :f => task[:completed]
+        content.push :t => task[:task], :c => task[:completed]
       end
       data = { succeeded: content.size > 0, code: view_context.generate_qrcode_base64(content.to_json, 384) }
     else
