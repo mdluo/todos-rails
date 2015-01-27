@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   root 'todos#index'
   get 'todos' => 'todos#index'
   get 'todos/all' => 'todos#all'
