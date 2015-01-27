@@ -175,7 +175,6 @@ label[for='toggle-all'] {
     transform: rotate(90deg);
 }
 
-
 #toggle-all:before {
     content: '»';
     font-size: 28px;
@@ -368,21 +367,30 @@ label[for='toggle-all'] {
     font-weight: bold;
 }
 
-#clear-completed {
+.footer-button {
+    height: 20px;
     float: right;
+    margin-left: 10px;
     position: relative;
     line-height: 20px;
     text-decoration: none;
     background: rgba(0, 0, 0, 0.1);
     font-size: 11px;
-    padding: 0 10px;
     border-radius: 3px;
     box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.2);
 }
 
-#clear-completed:hover {
+.footer-text {
+    padding: 0 10px;
+}
+
+.footer-button:hover {
     background: rgba(0, 0, 0, 0.15);
     box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.comCount {
+    font-weight: bold;
 }
 
 #info {
@@ -403,24 +411,6 @@ label[for='toggle-all'] {
     background-color: white;
     padding: 1em;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 0 25px 50px 0 rgba(0, 0, 0, 0.5);
-}
-
-#gen-qrcode {
-    font-size: 1em;
-    text-decoration: none;
-    border-radius: 3px;
-    line-height: 1.5em;
-    padding: 0 7px;
-}
-
-#gen-qrcode:hover {
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.2);
-}
-
-#gen-qrcode:active {
-    background: rgba(0, 0, 0, 0.15);
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.3);
 }
 
 /*
