@@ -54,6 +54,7 @@ class TodosController < ApplicationController
       @todo.destroy
       render json: @todo
     else
+      cookies.permanent[:lat_lon] = ""
       @todos = Todo.all
       @todos.find_each() do |todo|
         if todo.completed
