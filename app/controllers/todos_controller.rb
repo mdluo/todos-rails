@@ -7,8 +7,6 @@ class TodosController < ApplicationController
     if cookies[:lat_lon] != nil
         cookies[:lat_lon].split(',').each { |value| @todos.push(Todo.where(:id => value.to_i).first) }
     end
-       
-      
     render json: @todos
   end
 
@@ -16,19 +14,15 @@ class TodosController < ApplicationController
     @todo = Todo.new
       @todo.task = params[:task]
       @todo.completed = params[:completed]
-      @todo.save
-
-      if cookies[:lat_lon] != nil
-          @idSet = cookies[:lat_lon].split(',')
-      else
-          @idSet = Array.new
-      end
-
-      @idSet.push @todo.id
-      cookies.permanent[:lat_lon] = @idSet.join(',')
-
-      
-      render json: @todo
+    @todo.save
+    if cookies[:lat_lon] != nil
+        @idSet = cookies[:lat_lon].split(',')
+    else
+        @idSet = Array.new
+    end
+    @idSet.push @todo.id
+    cookies.permanent[:lat_lon] = @idSet.join(',')
+    render json: @todo
   end
 
   def update
@@ -68,20 +62,15 @@ class TodosController < ApplicationController
 
   def qrcode
     if cookies[:lat_lon] != nil
-
       content = Array.new
       cookies[:lat_lon].split(',').each do |id|
         task = Todo.where(:id => id.to_i).first
         content.push :id => id.to_i, :task => task[:task], :f => task[:completed]
       end
-
       data = { succeeded: content.size > 0, code: view_context.generate_qrcode_base64(content.to_json, 384) }
-
     else
       data = { succeeded: false }
     end
-
     render json: data
   end
-
 end
