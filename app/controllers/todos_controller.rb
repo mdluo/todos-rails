@@ -1,4 +1,15 @@
 class TodosController < ApplicationController
+
+  private
+  def get_user_todos
+    if session[:user_id]
+      @todos = Todo.find_by user_id: session[:user_id]
+    else
+      @todos = []
+    end
+  end
+
+  public
   def index
   end
 
