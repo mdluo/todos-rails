@@ -41,8 +41,9 @@ rails server
 #### API Document
 
 * Todo JSON data sample:
-
-
+```json
+[{"id":1,"task":"Task Title 01","completed":true},{"id":2,"task":"Task Title 2","completed":false}]
+```
 
 * Session Name: `_todos_session`
 
