@@ -17,7 +17,7 @@ class TodosController < ApplicationController
   end
 
   def all
-    @todos = Todo.where(user_id: session[:user_id])
+    @todos = Todo.where(user_id: session[:user_id]).select(:id, :task, :completed)
     render json: @todos
   end
 
