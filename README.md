@@ -37,3 +37,22 @@ rails server
 ```
 
 - Done! Go to http://127.0.0.1:3000
+
+#### API Document
+
+* Todo JSON data sample:
+
+
+
+* Session Name: `_todos_session`
+
+  The Session must included in the header of every requests.
+
+* Get all todos for current user:
+
+  `GET 'http://host/todos/all'`
+
+* Create a new todo for current user:
+
+  `GET 'http://host/todos/create'`
+  
