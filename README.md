@@ -57,9 +57,18 @@ rails server
 
   `POST 'http://host/todos/create'`
   
-  New todo JSON data sample:
+  New todo request JSON data sample:
   
   ```json
   [{"task":"New Todo Title"}]
   ```
   
+  New todo response JSON data sample:
+  
+  ```json
+  [{"id":1,"task":"New Todo Title","completed":false}]
+  ```
+  
+* Update the status of a todo:
+
+  `POST 'http://host/todos/update'`
