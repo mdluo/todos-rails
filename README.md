@@ -45,9 +45,9 @@ rails server
 [{"id":1,"task":"Task Title 01","completed":true},{"id":2,"task":"Task Title 2","completed":false}]
 ```
 
-* Session Name: `_todos_session`
+* Session name: `_todos_session`
 
-  The Session must included in the header of every requests.
+  The session must included in the header of every requests.
 
 * Get all todos for current user:
 
@@ -55,5 +55,11 @@ rails server
 
 * Create a new todo for current user:
 
-  `GET 'http://host/todos/create'`
+  `POST 'http://host/todos/create'`
+  
+  New todo JSON data sample:
+  
+  ```json
+  [{"task":"New Todo Title"}]
+  ```
   
