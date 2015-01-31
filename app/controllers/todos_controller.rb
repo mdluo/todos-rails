@@ -24,7 +24,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new
       @todo.task = params[:task]
-      @todo.completed = params[:completed]
+      @todo.completed = false
       @todo.user_id = session[:user_id]
     @todo.save
     render json: @todo
