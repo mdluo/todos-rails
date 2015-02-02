@@ -1,6 +1,6 @@
 # For Chinese developers only.
-# If you are non-Chinese, use " source 'https://rubygems.org/' " instead.
-source 'https://ruby.taobao.org'
+# If you are in China, use " source 'https://ruby.taobao.org' " instead.
+source 'https://rubygems.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

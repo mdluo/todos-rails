@@ -26,6 +26,11 @@ git clone https://github.com/mdluo/todos.git
 cd todos
 ```
 
+- Install bundle:
+```bash
+bundle install
+```
+
 - Then run the migration:
 ```bash
 rake db:migrate
@@ -56,19 +61,19 @@ rails server
 * Create a new todo for current user:
 
   `POST 'http://host/todos/create'`
-  
+
   New todo request JSON data sample:
-  
+
   ```json
   [{"task":"New Todo Title"}]
   ```
-  
+
   New todo response JSON data sample:
-  
+
   ```json
   [{"id":1,"task":"New Todo Title","completed":false}]
   ```
-  
+
 * Update the status of a todo:
 
   `POST 'http://host/todos/update'`
