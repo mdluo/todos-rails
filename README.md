@@ -45,11 +45,6 @@ rails server
 
 #### API Document
 
-* Todo JSON data sample:
-```json
-[{"id":1,"task":"Task Title 01","completed":true},{"id":2,"task":"Task Title 2","completed":false}]
-```
-
 * Session name: `_todos_session`
 
   The session must included in the header of every requests.
@@ -57,6 +52,12 @@ rails server
 * Get all todos for current user:
 
   `GET 'http://host/todos/all'`
+  
+  Response JSON data sample:
+
+  ```json
+  [{"id":1,"task":"Task Title 01","completed":true},{"id":2,"task":"Task Title 2","completed":false}]
+  ```
 
 * Create a new todo for current user:
 
@@ -65,15 +66,28 @@ rails server
   New todo request JSON data sample:
 
   ```json
-  [{"task":"New Todo Title"}]
+  {"task":"New Todo Title"}
   ```
 
   New todo response JSON data sample:
 
   ```json
-  [{"id":1,"task":"New Todo Title","completed":false}]
+  {"id":1,"task":"New Todo Title","completed":false}
   ```
 
 * Update the status of a todo:
 
   `POST 'http://host/todos/update'`
+  
+  Update todo request JSON data sample:
+
+  ```json
+  [{"id":1}]
+  ```
+
+  Update todo response JSON data sample:
+
+  ```json
+  [{"id":1,"task":"New Todo Title","completed":true}]
+  ```
+
