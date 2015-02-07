@@ -4,17 +4,17 @@ Todos
 Todolist App for Ruby on Rails
 
 
-#### Live demo
+### Live demo
 http://todos.nsmss.com/
 
 
-#### Requirement
+### Requirement
 - Git
 - Ruby
 - Rails
 
 
-#### Deployment
+### Deployment
 
 ##### Clone this repository:
 ```bash
@@ -43,7 +43,8 @@ rails server
 
 ##### Done! Go to http://127.0.0.1:3000
 
-#### API Document
+
+### API Document
 
 ##### Session name: `_todos_session`
 
@@ -82,12 +83,27 @@ rails server
   Update todo request JSON data sample:
 
   ```json
-  [{"id":1}]
+  {"id":1}
   ```
 
   Update todo response JSON data sample:
 
   ```json
-  [{"id":1,"task":"New Todo Title","completed":true}]
+  {"id":1,"task":"New Todo Title","completed":true}
+  ```
+  
+##### Delete a todo:
+
+  `POST 'http://host/todos/delete'`
+  
+  Delete todo request JSON data sample:
+
+  ```json
+  {"id":1}
   ```
 
+  Delete todo response JSON data sample:
+
+  ```json
+  {"id":1,"task":"New Todo Title","completed":true}
+  ```
