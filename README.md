@@ -46,7 +46,9 @@ rails server
 
 ### API Document
 
-##### Session name: `_todos_session`
+##### Session name: 
+
+  `_todos_session`
 
   The session must included in the header of every requests.
 
