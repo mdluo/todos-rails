@@ -16,40 +16,40 @@ http://todos.nsmss.com/
 
 #### Deployment
 
-- Clone this repository:
+##### Clone this repository:
 ```bash
 git clone https://github.com/mdluo/todos.git
 ```
 
-- And go into the directory:
+##### And go into the directory:
 ```bash
 cd todos
 ```
 
-- Install bundle:
+##### Install bundle:
 ```bash
 bundle install
 ```
 
-- Then run the migration:
+##### Then run the migration:
 ```bash
 rake db:migrate
 ```
 
-- One more thing, start the server:
+##### One more thing, start the server:
 ```bash
 rails server
 ```
 
-- Done! Go to http://127.0.0.1:3000
+##### Done! Go to http://127.0.0.1:3000
 
 #### API Document
 
-* Session name: `_todos_session`
+##### Session name: `_todos_session`
 
   The session must included in the header of every requests.
 
-* Get all todos for current user:
+##### Get all todos for current user:
 
   `GET 'http://host/todos/all'`
   
@@ -59,7 +59,7 @@ rails server
   [{"id":1,"task":"Task Title 01","completed":true},{"id":2,"task":"Task Title 2","completed":false}]
   ```
 
-* Create a new todo for current user:
+##### Create a new todo for current user:
 
   `POST 'http://host/todos/create'`
 
@@ -75,7 +75,7 @@ rails server
   {"id":1,"task":"New Todo Title","completed":false}
   ```
 
-* Update the status of a todo:
+##### Update the status of a todo:
 
   `POST 'http://host/todos/update'`
   
