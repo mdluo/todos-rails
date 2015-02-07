@@ -27,7 +27,7 @@ class TodosController < ApplicationController
       @todo.completed = false
       @todo.user_id = session[:user_id]
     @todo.save
-    render json: @todo
+    render json: @todo.slice(:id, :task, :completed)
   end
 
   def update
@@ -35,7 +35,7 @@ class TodosController < ApplicationController
     if @todo.user_id == session[:user_id]
       @todo.completed = !@todo.completed
       @todo.save
-      render json: @todo
+      render json: @todo.slice(:id, :task, :completed)
     else
       render []
     end
@@ -50,14 +50,14 @@ class TodosController < ApplicationController
         todo.save
       end
     end
-    render json: @todos
+    render json: @todos.slice(:id, :task, :completed)
   end
 
   def delete
     @todo = Todo.find(params[:id])
     if @todo.user_id == session[:user_id]
       @todo.destroy
-      render json: @todo
+      render json: @todo.slice(:id, :task, :completed)
     else
       render []
     end
