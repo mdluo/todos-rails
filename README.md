@@ -114,7 +114,7 @@ rails server
 
   `POST 'http://host/todos/delete'`
   
-  Request JSON data sample:
+  Request JSON data:
 
   ```json
   {"id":-1}
