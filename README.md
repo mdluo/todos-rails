@@ -109,3 +109,19 @@ rails server
   ```json
   {"id":1,"task":"New Todo Title","completed":true}
   ```
+
+##### Clear completed todos:
+
+  `POST 'http://host/todos/delete'`
+  
+  Request JSON data sample:
+
+  ```json
+  {"id":-1}
+  ```
+
+  Response JSON data sample (Return todos have not been marked as completed):
+
+  ```json
+  [{"id":1,"task":"Task Title 01","completed":false},{"id":2,"task":"Task Title 2","completed":false}]
+  ```
