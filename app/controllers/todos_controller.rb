@@ -54,12 +54,15 @@ class TodosController < ApplicationController
   end
 
   def delete
-    @todo = Todo.find(params[:id])
-    if @todo.user_id == session[:user_id]
+    if params[:id].to_i == -1
+      @todos = Todo.where(user_id: session[:user_id], completed: true)
+      @todos.destroy_all
+      @todos = Todo.where(user_id: session[:user_id]).select(:id, :task, :completed)
+      render json: @todos
+    else
+      @todo = Todo.find(params[:id], user_id: session[:user_id])
       @todo.destroy
       render json: @todo.slice(:id, :task, :completed)
-    else
-      render []
     end
   end
 
