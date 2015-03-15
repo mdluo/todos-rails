@@ -3,10 +3,12 @@ class TodosController < ApplicationController
   private
   def get_user
     if session[:user_id] == nil
-      if Todo.maximum("user_id")
-        session[:user_id] = Todo.maximum("user_id").to_i + 1
-      else
-        session[:user_id] = 1
+      if Todo.count() > 0
+        if Todo.maximum("user_id")
+          session[:user_id] = Todo.maximum("user_id").to_i + 1
+        else
+          session[:user_id] = 1
+        end
       end
     end
   end
